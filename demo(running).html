@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Image Gallery | COMP1073 Client-Side JavaScript</title>
+	<link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+	<h1>Image Gallery</h1>
+<body>
+    <div onclick="changeImageOnClick(event)">
+        <img class="imgStyle" src= "images/flowers-pink-large.jpg" alt="" width="240" height="160" />
+        <img class="imgStyle" src= "images/flowers-purple-large.jpg" alt="" width="240" height="160" />
+        <img class="imgStyle" src= "images/flowers-red-large.jpg"  alt="" width="240" height="160" />
+        <img class="imgStyle" src= "images/flowers-white-large.jpg"alt="" width="240" height="160" />
+        <img class="imgStyle" src= "images/flowers-yellow-large.jpg"alt="" width="240" height="160" />
+    </div>
+    <div>
+        <figure>
+                <img id="mainImage" height="500px" width="540x" src="images/flowers-pink-large.jpg" style="border:3px solid grey"/>
+                <img src="images/flowers-pink-small.jpg" alt="" style="display: none;" />
+                <img src="images/flowers-purple-small.jpg"  alt="" style="display: none;" />
+                <img src="images/flowers-red-small.jpg"alt="" style="display: none;" />
+                <img src="images/flowers-white-small.jpg" alt="" style="display: none;" />
+                <img src="images/flowers-yellow-small.jpg" alt="" style="display: none;" />
+        </figure>
+    </div>
+    
+    
+    <script type="text/javascript">
+
+        for (var i = 0; i < images.length; i++) {
+            images[i].onmouseover = function () {
+                this.style.cursor = 'hand';
+                this.style.borderColor = 'red';
+            }
+            images[i].onmouseout = function () {
+                this.style.cursor = 'pointer';
+                this.style.borderColor = 'grey';
+            }
+        }
+        
+        function changeImageOnClick(event) 
+        {
+            event = event || window.event;
+            var targetElement = event.target || event.srcElement;
+
+            if(targetElement.tagName == "IMG")
+            {
+                mainImage.src = targetElement.getAttribute("src");    
+            }
+        }
+        
+    </script>
+</body>
+</html>
